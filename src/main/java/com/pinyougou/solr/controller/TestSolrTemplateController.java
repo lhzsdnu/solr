@@ -31,7 +31,7 @@ public class TestSolrTemplateController {
         item.setGoodsId(1L);
         item.setSeller("华为2号专卖店");
         item.setTitle("华为Mate9");
-        item.setPrice(2000D);
+        item.setPrice("2000");
 
         musicRepository.save(item);
 
@@ -46,7 +46,7 @@ public class TestSolrTemplateController {
         item.setGoodsId(10L);
         item.setSeller("华为2号专卖店");
         item.setTitle("华为Mate9");
-        item.setPrice(2000D);
+        item.setPrice("2000");
 
         musicRepository.save(item);
 
@@ -80,7 +80,7 @@ public class TestSolrTemplateController {
             item.setGoodsId(1L);
             item.setSeller("华为2号专卖店");
             item.setTitle("华为Mate"+i);
-            item.setPrice(2000D);
+            item.setPrice("2000");
             list.add(item);
         }
         musicRepository.saveAll(list);
@@ -88,10 +88,6 @@ public class TestSolrTemplateController {
 
     @RequestMapping("/pageQuery")
     public void testPageQuery(){
-
-        //Query query=new SimpleQuery("*:*");
-        //query.setOffset(20L);//开始索引（默认0）
-        //query.setRows(20);//每页记录数(默认10)
 
         Pageable pageable = PageRequest.of(1, 20);
         Page<Item> page = musicRepository.findAll(pageable);
@@ -116,7 +112,7 @@ public class TestSolrTemplateController {
     public void testPageQueryMutil(){
 
         Pageable pageable = PageRequest.of(0, 100);
-        Page<Item> page = musicRepository.findByTitleContaining("5",pageable);
+        Page<Item> page = musicRepository.findByTitle("5",pageable);
         System.out.println("总记录数："+page.getTotalElements());
         System.out.println("总分页数："+page.getTotalPages());
 

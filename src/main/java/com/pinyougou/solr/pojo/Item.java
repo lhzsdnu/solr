@@ -33,7 +33,7 @@ public class Item {
      * 商品价格，单位为：元
      */
     @Field("item_price")
-    private Double price;
+    private String price;
     private Integer stockCount;
     /**
      * 库存数量
@@ -68,7 +68,7 @@ public class Item {
     private BigDecimal costPirce;
     private BigDecimal marketPrice;
     private String isDefault;
-    @Field("item_goodsid")
+    @Field("item_goodsId")
     private Long goodsId;
     private String sellerId;
     private String cartThumbnail;
@@ -105,11 +105,11 @@ public class Item {
         this.sellPoint = sellPoint;
     }
 
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
