@@ -111,7 +111,7 @@ public class TestSolrTemplateController {
     @RequestMapping("/pageQueryMutil")
     public void testPageQueryMutil(){
 
-        Pageable pageable = PageRequest.of(0, 100);
+        Pageable pageable = PageRequest.of(0, 15);
         Page<Item> page = musicRepository.findByTitle("5",pageable);
         System.out.println("总记录数："+page.getTotalElements());
         System.out.println("总分页数："+page.getTotalPages());
